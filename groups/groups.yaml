@@ -1,87 +1,63 @@
-# departures:
-#   name: Abfahrten
-#   entities:
-#     - sensor.u6_stadt
-#     - sensor.u6_uni
-
-
-schlafzimmer_card:
-  name: Schlafzimmer
-  control: hidden
-  entities:
-    - scene.bedroom_bright
-    - scene.nachtlicht_scene
-    - scene.nachtlicht_10m
-    - script.romantic_bedroom
-    - light.nachtlicht
-
-
-wohnraum_card:
-  name: Wohnraum Szenen
-  control: hidden
-  entities:
-    - scene.cozy_lights
-    - scene.tv
-    - scene.reading
-    - scene.cleaning
-    - scene.dinner
-
 
 wohnraum_lamps_card:
   name: Wohnraum Einzellampen
   entities:
-    - light.kitchen_group
-    - light.deckenlampe
-    - light.esstisch
-    - light.leselampe
-    - light.wohnzimmer
-
+    - light.light_1
+    - light.light_2
 
 people:
   name: Personen
   control: hidden
   entities:
-    - device_tracker.max_smartphone
-    - device_tracker.theresa_smartphone
+    - device_tracker.husband
+    - device_tracker.wife_A2
     - input_boolean.guest_mode
     - input_boolean.vacation_mode
 
+residents:
+  name: Bewohner
+  control: hidden
+  entities:
+    - device_tracker.husband
+    - device_tracker.wife_A2
+
+sensors:
+  name: Sensoren
+  entities:
+    - binary_sensor.water_6
+    - sensor.humidity_6
+    - sensor.pressure_7
+    - sensor.temperature_5
+    - sensor.gmaps_home2meetingpoint
+    - sensor.gmaps_meetingpoint2work
+    - sensor.gmaps_work2meetingpoint
+    - sensor.gmaps_meetingpoint2home
 
 pi_sensors:
   name: Raspberry Pi
   entities:
     - sensor.processor_use
     - sensor.cpu_temperature
-    # - sensor.disk_use_percent_
     - sensor.disk_use_percent
     - sensor.memory_use_percent
-    - sensor.load_1m
-    - sensor.load_5m
     - sensor.load_15m
     - sensor.last_boot
 
 
-# pi_speedtest:
-#   name: Speedtest
-#   entities:
-#     - sensor.speedtest_ping
-#     - sensor.speedtest_download
-#     - sensor.speedtest_upload
-#     - script.run_speedtest
+pi_hole:
+  name: DNS AdBlock!
+  entities:
+    - sensor.pihole_dns_queries_today
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_dns_queries_cached
+    - sensor.pihole_dns_unique_clients
+    - weblink.pihole_dashboard
 
 
 admin_misc:
   name: Anderes
   entities:
     - sun.sun
-
-
-admin_scenes:
-  name: Lichtszenen
-  entities:
-    - scene.nachtlicht_scene
-    - scene.nachtlicht_10m
-    - scene.tv
-    - scene.cozy_lights
-    - scene.cleaning
-    - scene.dinner
+    - sensor.time
+    - sensor.daylight

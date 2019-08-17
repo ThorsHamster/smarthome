@@ -1,0 +1,20 @@
+- alias: 'Guests. Turn on guest wifi'
+  initial_state: 'on'
+  trigger:
+  - entity_id: input_boolean.guest_mode
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - service: fritzbox_guestwifi.turn_on
+
+
+- alias: 'Guests Away. Turn off guest wifi'
+  initial_state: 'on'
+  trigger:
+  - entity_id: input_boolean.guest_mode
+    from: 'on'
+    platform: state
+    to: 'off'
+  action:
+  - service: fritzbox_guestwifi.turn_off

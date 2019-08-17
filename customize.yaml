@@ -1,70 +1,35 @@
-switch.plug_kitchen:
-  friendly_name: Küchensteckdose
-sensor.pihole_dns_queries_today:
-  icon: mdi:web
-  friendly_name: DNS Queries Total
-  unit_of_measurement: Queries
-sensor.pihole_ads_blocked_today:
-  unit_of_measurement: Queries
-  friendly_name: DNS Queries Blocked
-sensor.pihole_ads_percentage_blocked_today:
-  unit_of_measurement: '%'
-  friendly_name: Blocked Percentage
-sensor.living_room_climate_temperature:
-  friendly_name: Wohnzimmer Temperatur
-sensor.living_room_climate_humidity:
-  friendly_name: Wohnzimmer Feuchtigkeit
-sensor.bathroom_climate_temperature:
-  friendly_name: Bad Temperatur
-sensor.bathroom_climate_humidity:
-  friendly_name: Bad Feuchtigkeit
-device_tracker.tv:
-  icon: mdi:television
-device_tracker.thebeast:
-  icon: mdi:desktop-tower
-device_tracker.max_laptop:
-  icon: mdi:laptop-chromebook
-person.max:
-  entity_picture: https://www.gravatar.com/avatar/f68935bb93d6f010679d8603448db8d3.jpg
-person.theresa:
-  entity_picture: /local/theresa.jpg
-script.romantic_bedroom:
-  icon: mdi:heart
-script.start_coffee_machine:
-  icon: mdi:coffee
-script.soundbar_say:
-  icon: mdi:volume-high
-script.run_speedtest:
-  icon: mdi:speedometer
-script.hassio_google_backup:
-  icon: mdi:cloud-upload
-scene.nachtlicht_scene:
-  friendly_name: Schlafen
-  icon: mdi:hotel
-scene.nachtlicht_10m:
-  friendly_name: Einschlafen
-  icon: mdi:sleep
-scene.tv:
-  friendly_name: TV
-  icon: mdi:television
-scene.cozy_lights:
-  friendly_name: Gemütliches Licht
-  icon: mdi:sofa
-scene.cleaning:
-  friendly_name: Putzen
-  icon: mdi:broom
-scene.dinner:
-  friendly_name: Dinner
-  icon: mdi:glass-tulip
-scene.reading:
-  friendly_name: Lesen
-  icon: mdi:book-open-page-variant
-scene.bedroom_bright:
-  friendly_name: Schlafzimmer hell
-  icon: mdi:lightbulb-on
-group.all_scenes:
-  friendly_name: Alle Szenen
-  hidden: false
+# Lights
+light.light_1:
+  friendly_name: Esszimmer
+  icon: mdi:ceiling-light
+light.light_2:
+  friendly_name: Kueche
+  icon: mdi:spotlight-beam
+
+# Device Tracker
+device_tracker.husband:
+  friendly_name: ''
+  icon: mdi:human-male
+
+device_tracker.wife_a2:
+  friendly_name: ''
+  icon: mdi:human-female
+
+# Switches
+switch.sonoff1:
+  friendly_name: Fernseher
+
+switch.sonoff2:
+  friendly_name: Heizdecke
+
+# Sensors
+sensor.humidity_6:
+  friendly_name: 'Humidor Luftfeuchte'
+
+sensor.temperature_5:
+  friendly_name: 'Humidor Temperatur'
+
+# Groups
 group.all_automations:
   friendly_name: Alle Automatisierungen
   hidden: false
@@ -79,7 +44,7 @@ group.all_lights:
   friendly_name: Alle Lichter
   hidden: false
 group.all_switches:
-  friendly_name: Alle Plugs / Switches
+  friendly_name: Alle Steckdosen
   control: hidden
   hidden: false
 group.default_view:
@@ -88,16 +53,3 @@ group.admin_view:
   order: 1
 group.pi_view:
   order: 2
-light.leselampe:
-  icon: mdi:desk-lamp
-light.esstisch:
-  icon: mdi:ceiling-light
-light.deckenlampe:
-  icon: mdi:spotlight-beam
-light.kitchen_group:
-  friendly_name: Küche
-  icon: mdi:pot-mix
-light.kuche:
-  friendly_name: Küchenlicht
-light.wohnzimmer:
-  icon: mdi:sofa

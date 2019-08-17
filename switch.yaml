@@ -1,19 +1,17 @@
-- platform: tplink
-  # discovery: false
-  # switch:
-  #   name: tp_switch_1
-  #   host: 192.168.178.35
+- platform: mqtt
+  name: "Sonoff1"
+  command_topic: "cmnd/sonoff1/power"
+  state_topic: "stat/sonoff1/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
 
-
-# This switch is exposed to Alexa, so we can "turn on" / "turn off" the vacuum.
-# We cannot expose the vacuum domain to alexa apparently
-- platform: template
-  switches:
-    vacuum:
-      friendly_name: Staubi
-      value_template: "{{ is_state('vacuum.staubi', 'on') }}"
-      turn_on:
-        service: script.vacuum_start_cleaning
-      turn_off:
-        service: vacuum.return_to_base
-        entity_id: vacuum.staubi
+- platform: mqtt
+  name: "Sonoff2"
+  command_topic: "cmnd/sonoff2/power"
+  state_topic: "stat/sonoff2/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

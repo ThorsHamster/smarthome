@@ -7,7 +7,7 @@ _LOGGER = logging.getLogger(__name__)
 
 def setup(hass, config):
     _LOGGER.debug('Setting up GuestWifi Component')
-    host = config[DOMAIN].get('host', '169.254.1.1')
+    host = config[DOMAIN].get('host', '192.168.178.1')
     port = config[DOMAIN].get('port', 49000)
     username = config[DOMAIN].get('username', '')
     password = config[DOMAIN].get('password', None)
@@ -41,7 +41,7 @@ class FritzBoxGuestWifi(object):
         )
 
     def reconnect_fritzbox(self, call):
-        _LOGGER.info('Reconnecting the fritzbox.')
+        _LOGGER.info('Reconnicting the fritzbox.')
         self._connection.reconnect()
 
     def turn_on(self, call):
@@ -58,5 +58,6 @@ class FritzBoxGuestWifi(object):
         try:
             self._connection.call_action('WLANConfiguration:3', 'SetEnable', NewEnable=new_state)
         except ServiceError or ActionError:
+            pass
             _LOGGER.error('Home Assistant cannot call the wished service on the FRITZ!Box. '
                           'Are credentials, address and port correct?')

@@ -1,8 +1,22 @@
-- platform: template
-  sensors:
-    humans_home:
-      friendly_name: Humans Home
-      device_class: presence
-      value_template: >
-        {{ is_state('device_tracker.max_smartphone', 'home') or
-            is_state('device_tracker.theresa_smartphone', 'home') }}
+
+# Workday Sensor
+- platform: workday
+  name: workday
+  country: !secret workdays_country
+  province: !secret workday_province
+  workdays: [mon, tue, wed, thu, fri]
+
+# Workday Sensor Tomorrow
+- platform: workday
+  name: workday_tomorrow
+  country: !secret workdays_country
+  province: !secret workday_province
+  workdays: [mon, tue, wed, thu, fri]
+  days_offset: 1
+
+# Workday Sensor FGM
+- platform: workday
+  name: workday_fgm
+  country: !secret workdays_country
+  province: !secret workday_province
+  workdays: [mon, tue, wed, thu]

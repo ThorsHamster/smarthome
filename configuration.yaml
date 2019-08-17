@@ -1,5 +1,5 @@
 homeassistant:
-  name: Zuhause
+  name: Home
   latitude: !secret home_latitude
   longitude: !secret home_longitude
   elevation: !secret home_elevation
@@ -8,200 +8,69 @@ homeassistant:
 
   customize: !include customize.yaml
 
-  auth_providers:
-   - type: homeassistant
-   - type: legacy_api_password
-     api_password: !secret api_password
-  #  - type: trusted_networks
-  #    trusted_networks:
-  #     - 192.168.178.1/24
+lovelace:
+  mode: yaml
 
-
-sun:
 frontend:
   javascript_version: latest
-  themes: !include_dir_merge_named themes
-# discovery:
+  themes: !include themes.yaml
+
+# Enables configuration UI
 config:
-updater:
-  reporting: true  # Share system information
-  include_used_components: true # Allows Home Assistant developers to focus on popular components.
 
-
-weblink:
-  entities:
-    - name: Pi-Hole Dashboard
-      url: http://192.167.178.33/admin/
-      icon: mdi:chart-line
-    - name: Hassio Backup Addon UI
-      url: http://192.168.178.46:8055/gb/
-      icon: mdi:cloud-upload
-    - name: Hassio Backup Folder in Drive
-      url: https://drive.google.com/drive/u/0/folders/1Q0VZyc5cpcLHo7X7cIhk-WvkA2GG8sEE
-      icon: mdi:cloud-upload
-
-
-
-logger:
-  default: warn
-  logs:
-    songpal: error  # It's spamming with warnings
-  #   homeassistant.components.google_assistant: debug
-  #   homeassistant.components.google_assistant.auth: debug
-  #   homeassistant.components.api: debug
- #   custom_components.fritzbox_guestwifi: debug
-    # homeassistant.components.recorder: debug  # Useful for heavy updates
- #   homeassistant.components.device_tracker: warn
- #   homeassistant.components.http: warn # fail2ban uses this log
- #   homeassistant.core: warn
- #   homeassistant.components.scene: info
- #   homeassistant.components.intent_script: debug
-
-http:
-  base_url: !secret base_url
-  # ssl_certificate: !secret ssl_certificate
-  # ssl_key: !secret ssl_key
-  # api_password: !secret api_password
-  ip_ban_enabled: True
-  login_attempts_threshold: 3
-
-
-# tts:
-#   platform: google
-#   language: de
-
-google_assistant: !include google_assistant.yaml
-
-device_tracker:
-  # - platform: owntracks
-  - platform: fritz
-    username: !secret fritzbox_username
-    password: !secret fritzbox_password
-    track_new_devices: no
-    interval_seconds: 10
-    consider_home: 20  # Needs to be at least `interval_seconds`
-
-hue:
-  bridges:
-    - host: !secret var_ip_hue
-
-
-
-# remote:
-#   - platform: xiaomi_miio
-#     host: !secret var_ip_ir_remote
-#     token: !secret xiaomi_ir_remote_token
-
-media_player:
-  - platform: spotify
-    client_id: !secret spotify_client_id
-    client_secret: !secret spotify_secret
-  - platform: songpal
-    name: Soundbar
-    endpoint: !secret var_soundbar_songpal
-  # - platform: androidtv
-  #   name: Fire TV
-  #   host: !secret var_ip_firetv
-
-vacuum:
-  - platform: xiaomi_miio
-    host: !secret var_ip_vacuum
-    token: !secret vacuum_token
-    name: Staubi
-
-light: !include light.yaml
-alexa: !include alexa.yaml
-# alert: !include alert.yaml
-# intent_script: !include intent_script.yaml
-automation: !include_dir_merge_list automations/
-history: !include history.yaml
-input_boolean: !include_dir_merge_named input_boolean
-logbook: !include logbook.yaml
-notify: !include notify.yaml
-recorder: !include recorder.yaml
-scene: !include scenes.yaml
-script: !include scripts.yaml
-sensor: !include sensors.yaml
-binary_sensor: !include binary_sensors.yaml
-# shell_command: !include shell_commands.yaml
-switch: !include switch.yaml
-
-# Custom Components
-fritzbox_guestwifi:
-  username: !secret fritzbox_username
-  password: !secret fritzbox_password
-hacs:
-  token: !secret hacs_github_token
-breaking_changes:
-zigbee2mqtt_networkmap:
-
-hassio:
 system_health:
 
-webhook:
+updater:
+  include_used_components: true # Allows Home Assistant developers to focus on popular components.
 
-panel_iframe:
-  zigbee_networkmap:
-     title: 'Zigbee Map'
-     url: '/local/community/zigbee2mqtt_networkmap/map.html'
-     icon: 'mdi:graphql'
-#   ide:
-#     title: IDE
-#     icon: mdi:code-braces
-#     url: !secret var_ide_url
-#   portainer:
-#     title: Portainer
-#     icon: mdi:docker
-#     url: !secret var_portainer_url
-#   adguard:
-#     title: AdGuard
-#     icon: mdi:block-helper
-#     url: !secret var_adguard_url
+#logger:
+#  default: info
 
-shell_command:
-  lovelace_migrate: 'python3 /config/lovelace_migrate.py -c /config'
+# Discover some devices automatically
+discovery:
 
+# Track the sun
+sun:
 
-person:
-  - name: Max
-    id: max
-    user_id: 281584ea78f64d79b4d71b6814ada37b
-    device_trackers:
-      - device_tracker.max_smartphone
-      # - device_tracker.max_owntracks
-  - name: Theresa
-    id: theresa
-    user_id: 0bc097b44bc048f3a1b34442906d9b32
-    device_trackers:
-      - device_tracker.theresa_smartphone       
-      
-# owntracks:
-#   waypoints: false  # don't automatically publish owntracks regions as HA zones
-#   max_gps_accuracy: 100  # Ignore reports with accuracy < x m
-#   region_mapping:
-#     home: home
-#     blueshoe: blueshoe
-#     uni: uni
+# Fritzbox
+fritzbox:
+  devices:
+    - host: !secret fritz_ip
+      username: !secret fritz_user
+      password: !secret fritz_passwd
 
-# zone:
-#   - name: Home
-#     latitude: !secret home_latitude
-#     longitude: !secret home_longitude
-#     radius: 100
-#     icon: mdi:castle
-#   - name: BLUESHOE
-#     latitude: !secret max_work_latitude
-#     longitude: !secret max_work_longitude
-#     radius: 100
-#     icon: mdi:briefcase-outline
-#   - name: Uni
-#     latitude: !secret uni_latitude
-#     longitude: !secret uni_longitude
-#     radius: 500
-#     icon: mdi:school
+device_tracker:
+  - platform: fritz
+    host: !secret fritz_ip
 
-# map:
+# MQTT
+mqtt:
+  username: !secret mqtt_user
+  password: !secret mqtt_passwd
+  port: !secret mqtt_port
 
-rest_command:
-  hassio_google_backup:
-    url: !secret hassio_google_backup_url
+# custom components
+fritzbox_guestwifi:
+  host: !secret fritz_ip
+  username: !secret fritz_user
+  password: !secret fritz_passwd
+
+# Telegram
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_my_chat_id
+
+sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
+input_boolean: !include_dir_merge_named input_boolean
+group: !include_dir_merge_named groups
+automation: !include_dir_merge_list automations/
+script: !include scripts.yaml
+switch: !include switch.yaml
+logbook: !include logbook.yaml
+recorder: !include recorder.yaml
+notify: !include notify.yaml
+history: !include history.yaml
+history_graph: !include history_graph.yaml

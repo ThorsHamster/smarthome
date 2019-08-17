@@ -1,24 +1,39 @@
-# exclude:
-#   entities:
-#     # Sensors
-#     - sensor.since_last_boot
-#     # - sensor.u6_uni
-#     # - sensor.u6_stadt
-#     # Pi Hole Sensors
-#     - sensor.pihole_dns_queries_today
-#     - sensor.pihole_ads_blocked_today
-#     - sensor.pihole_ads_percentage_blocked_today
-#     - sensor.pihole_dns_queries_cached
-#     - sensor.pihole_dns_unique_clients
-#     - sensor.pihole_dns_unique_domains
-#     # Lights
-#     - light.wohnzimmer
-#     - light.nachtlicht
-#     # Other
-#     - input_boolean.alarm_clock_ringing
-#   domains:
-#     - group
-#     - automation
-#     - script
-#     - persistent_notification
-#     - weblink
+exclude:
+ domains:
+   - group
+   - automation
+   - script
+   - persistent_notification
+   - weblink
+   - device_tracker
+ entities:
+   # Sensors
+   - sensor.time
+   - sensor.last_boot
+   - sensor.load_15m
+   - sensor.daylight
+   - binary_sensor.workday
+   - binary_sensor.workday_tomorrow
+   - binary_sensor.workday_fgm
+   # Pi Hole Sensors
+   - sensor.pihole_dns_queries_today
+   - sensor.pihole_ads_blocked_today
+   - sensor.pihole_ads_percentage_blocked_today
+   - sensor.pihole_dns_queries_cached
+   - sensor.pihole_dns_unique_clients
+   - sensor.pihole_dns_unique_domains
+   - sensor.pihole_domains_blocked
+   # Lights
+   - light.light_1
+   - light.light_2
+   # Device Trackers
+   - device_tracker.firetv
+   - device_tracker.fritzbox
+   - device_tracker.mi5smiphone
+   - device_tracker.nostromo
+   - device_tracker.raspberrypi
+   - device_tracker.thanos
+   - device_tracker.xps
+   - device_tracker.lenovob570
+   - device_tracker.sonoff14353
+   - device_tracker.sonoff22693

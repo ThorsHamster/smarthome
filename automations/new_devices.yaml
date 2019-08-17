@@ -1,0 +1,13 @@
+- alias: 'Notify for new devices'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: device_tracker_new_device
+  action:
+  - service: notify.notify_me
+    data_template:
+      message: 'New device: {{ trigger.event.data.host_name if trigger.event.data.host_name
+        is defined else "NA" }} ({{ trigger.event.data.entity_id if trigger.event.data.entity_id
+        is defined else "NA" }})
+        '
+      title: '*New Device*'

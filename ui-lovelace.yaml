@@ -1,29 +1,157 @@
-# gallery: https://home-assistant-lovelace-gallery.netlify.com/#
 
-title: My Awesome Home
+title: Home
+
+resources:
+  - url: /local/mini-graph-card-bundle.js?v=0.5.0
+    type: module
+  - url: /local/monster-card.js?v=1
+    type: js
 
 views:
-    # View tab title.
-  - title: Example
-    # Optional unique id for direct access /lovelace/${id}
-    id: example
+  - title: Dashboard
+    icon: mdi:home
     cards:
-      - type: markdown
-        title: Lovelace
-        content: >
-          Welcome to your **Lovelace UI**.
       - type: entities
-        # Title of the entities card
-        title: Example
-        # The entities here will be shown in the same order as specified.
-        # Each entry is an entity ID or a map with extra options.
+        title: Personen
+        show_header_toggle: false
         entities:
-          - light.wohnraum
-          - entity: light.kitchen_group
-            # Override the name to use
-            name: Küchenmonster
-      - type: entity-filter
+          - device_tracker.husband
+          - device_tracker.wife_a2
+          - input_boolean.guest_mode
+          - input_boolean.vacation_mode
+      - type: entities
+        title: Wohnraum Einzellampen
+        show_header_toggle: false
         entities:
-          - device_tracker.max_smartphone
-        state_filter:
-          - not_home
+          - light.light_1
+          - light.light_2
+      - type: entities
+        title: Alle Steckdosen
+        show_header_toggle: false
+        entities:
+          - switch.sonoff1
+          - switch.sonoff2
+
+      - type: custom:mini-graph-card
+        entities:
+        - sensor.temperature_5
+        height: 100
+        line_width: 4
+        font_size: 75
+        labels: true
+        line_color: '#03a9f4'
+      - type: custom:mini-graph-card
+        entities:
+        - sensor.humidity_6
+        height: 100
+        line_width: 4
+        font_size: 75
+        labels: true
+        line_color: '#03a9f4'
+
+  - title: Graphs
+    icon: mdi:chart-line-variant
+    cards:
+      - type: history-graph
+        title: Temperature
+        hours_to_show: 24
+        refresh_interval: 60
+        entities:
+          - sensor.humidity_6
+          - sensor.pressure_7
+          - sensor.temperature_5
+
+  - title: Admin
+    icon: mdi:account-alert
+    cards:
+      - type: entities
+        title: Personen
+        show_header_toggle: false
+        entities:
+          - device_tracker.husband
+          - device_tracker.wife_a2
+          - input_boolean.guest_mode
+          - input_boolean.vacation_mode
+      - type: entities
+        title: "Alle Geräte"
+        show_header_toggle: false
+        entities:
+          - device_tracker.wife_a2
+          - device_tracker.uncle
+          - device_tracker.husband
+          - device_tracker.lenovob570
+      - type: entities
+        title: Alle Lichter
+        show_header_toggle: false
+        entities:
+          - light.light_1
+          - light.light_2
+      - title: All_Automations
+        type: "custom:monster-card"
+        card:
+          type: entities
+          title: All Automations
+        filter:
+          include:
+            - entity_id: "automation.*"
+          exclude:
+            - attributes:
+                hidden: true
+      - title: All_Scripts
+        type: "custom:monster-card"
+        show_header_toggle: false
+        icon: mdi:home-automation
+        card:
+          type: entities
+          title: All Scripts
+        filter:
+          include:
+            - entity_id: "script.*"
+      - type: entities
+        title: Alle Steckdosen
+        show_header_toggle: false
+        entities:
+          - switch.sonoff1
+          - switch.sonoff2
+      - type: entities
+        title: Anderes
+        show_header_toggle: false
+        entities:
+          - sun.sun
+          - sensor.time
+          - sensor.daylight
+      - type: entities
+        title: Sensoren
+        show_header_toggle: false
+        entities:
+          - binary_sensor.water_6
+          - sensor.humidity_6
+          - sensor.pressure_7
+          - sensor.temperature_5
+          - sensor.gmaps_home2meetingpoint
+          - sensor.gmaps_meetingpoint2work
+          - sensor.gmaps_work2meetingpoint
+          - sensor.gmaps_meetingpoint2home
+
+  - title: Pi
+    cards:
+      - type: entities
+        title: Raspberry Pi
+        show_header_toggle: false
+        entities:
+          - sensor.processor_use
+          - sensor.cpu_temperature
+          - sensor.disk_use_percent
+          - sensor.memory_use_percent
+          - sensor.load_15m
+          - sensor.last_boot
+      - type: entities
+        title: DNS AdBlock!
+        show_header_toggle: false
+        entities:
+          - sensor.pihole_dns_queries_today
+          - sensor.pihole_ads_blocked_today
+          - sensor.pihole_ads_percentage_blocked_today
+          - sensor.pihole_dns_queries_cached
+          - sensor.pihole_dns_unique_clients
+          - sensor.pihole_domains_blocked

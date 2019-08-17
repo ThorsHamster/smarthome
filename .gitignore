@@ -1,38 +1,47 @@
-*.pyc
 
-deps/
-tts/
-www/
+# Created by https://www.gitignore.io/api/homeassistant
+# Edit at https://www.gitignore.io/?templates=homeassistant
 
-sftp-config.json
-.vscode
-
+### HomeAssistant ###
+# Files with personal details
+*.crt
+*.csr
+*.key
+.google.token
+.uuid
+icloud/
+google_calendars.yaml
+harmony_media_room.conf
+home-assistant.db
 home-assistant_v2.db
-home-assistant.log
-home-assistant_v2.db-wal
-home-assistant_v2.db-shm
-
-zigbee2mqtt/log
-zigbee2mqtt/.storage
-zigbee2mqtt/database.db
-zigbee2mqtt/state.json
-zigbee2mqtt/configuration.yaml  # contains secrets
-
-custom_components/hacs
-
-secrets.yaml
+home-assistant_v2.db-*
+html5_push_registrations.conf
 ip_bans.yaml
 known_devices.yaml
-haaska-config.json
-entity_registry.yaml
-
-html5_push_registrations.conf
 phue.conf
+plex.conf
+pyozw.sqlite
+secrets.yaml
+tradfri.conf
 
+# Temporary files
+*.db-journal
+*.pid
+tts
+
+# automatically downloaded dependencies
+deps
+lib
+
+# Log files
+home-assistant.log
+ozw_log.txt
+
+# End of https://www.gitignore.io/api/homeassistant
+
+*.pyc
 .storage/
-.uuid
 .HA_VERSION
-.spotify-token-cache
-.shopping_list.json
-
-._*
+.idea
+.cloud
+.env

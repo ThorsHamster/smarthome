@@ -1,0 +1,46 @@
+version: '2'
+services:
+    deconz:
+        container_name: deconz
+        env_file: .env
+        restart: always
+        network_mode: 'host'
+        environment:
+            - DECONZ_WEB_PORT=${DECONZ_WEB_PORT}
+            - DECONZ_WS_PORT=${DECONZ_WS_PORT}
+        volumes:
+            - '${INSTALL_FOLDER}/deconz:/root/.local/share/dresden-elektronik/deCONZ'
+        devices:
+            - /dev/ttyAMA0
+        image: 'marthoc/deconz:armhf-2.05.66'
+    home-assistant:
+        container_name: home-assistant
+        env_file: .env
+        restart: always
+        network_mode: 'host'
+        depends_on:
+            - "deconz"
+        volumes:
+            - '${INSTALL_FOLDER}/homeassistant:/config'
+            - '/etc/localtime:/etc/localtime:ro'
+        image: 'homeassistant/raspberrypi3-homeassistant:0.97.2'
+    pihole:
+        container_name: pihole
+        env_file: .env
+        ports:
+            - '53:53/tcp'
+            - '53:53/udp'
+            - '67:67/udp'
+            - '80:80'
+            - '443:443'
+        volumes:
+            - '${INSTALL_FOLDER}/pihole/pihole/:/etc/pihole/'
+            - '${INSTALL_FOLDER}/pihole/dnsmasq.d/:/etc/dnsmasq.d/'
+        environment:
+            - 'ServerIP=${IP}'
+            - 'WEBPASSWORD=${WEBPASSWORD}'
+        restart: always
+        dns:
+            - 127.0.0.1
+            - 1.1.1.1
+        image: 'pihole/pihole:4.2.2_armhf'

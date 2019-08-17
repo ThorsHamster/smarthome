@@ -1,29 +1,10 @@
-# - platform: mvglive
-#   nextdeparture:
-#     - name: 'U6 Uni'
-#       station: Garching
-#       products: ['U-Bahn']
-#       destinations: ['Garching-Forschungszentrum']
-#       timeoffset: 12
-#     - name: 'U6 Stadt'
-#       station: Garching
-#       products: ['U-Bahn']
-#       destinations: ['Klinikum Großhadern', 'Harras', 'Fröttmaning', 'Kieferngarten', 'Freimann', 'Münchner Freiheit']
-#       timeoffset: 12
 
+# Time
+- platform: time_date
+  display_options:
+    - 'time'
 
-# - platform: openweathermap
-#   api_key: !secret openweathermap_api_key
-#   forecast: 2
-#   monitored_conditions:
-#     - weather
-
-
-- platform: dnsip
-  hostname: !secret base_url
-  scan_interval: 3600  # 1h. The sensor is just for passive monitoring.
-
-
+# System Monitor
 - platform: systemmonitor
   resources:
     - type: disk_use_percent
@@ -31,10 +12,7 @@
     - type: memory_use_percent
     - type: processor_use
     - type: last_boot
-    - type: load_1m
-    - type: load_5m
     - type: load_15m
-
 
 # Raspberry CPU Temperature
 - platform: command_line
@@ -43,108 +21,54 @@
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) }}'
 
+# Pihole
+- platform: pi_hole
+  name: Pihole
+  monitored_conditions:
+    - dns_queries_today
+    - ads_blocked_today
+    - ads_percentage_today
+    - queries_cached
+    - unique_clients
+    - domains_being_blocked
 
-- platform: time_date
-  display_options:
-    - 'time'
+# Google Maps
+- platform: google_travel_time
+  name: Gmaps Home2MeetingPoint
+  api_key: !secret gmaps_api_key
+  origin: !secret gmaps_home
+  destination: !secret gmaps_fgm
+  scan_interval: 03:00:00
+  options:
+    mode: driving
+    departure_time: now
 
-# Perform speedtest every 30m
-# - platform: speedtest
-#   server_id: 11540  # Rosenheim, Komro GmbH
-#   # server_id: 8908  # Garching, Net-D-Sign GmbH
-#   minute:
-#     - 0
-#     - 30
-#   monitored_conditions:
-#     - ping
-#     - download
-#     - upload
+- platform: google_travel_time
+  name: Gmaps MeetingPoint2Work
+  api_key: !secret gmaps_api_key
+  origin: !secret gmaps_fgm
+  destination: !secret gmaps_work
+  scan_interval: 03:00:00
+  options:
+    mode: driving
+    departure_time: now
 
-- platform: template
-  sensors:
-    spotify_source:
-      value_template: '{{ states.media_player.spotify.attributes["source"] }}'
-      friendly_name: 'Spotify Source'
+- platform: google_travel_time
+  name: Gmaps Work2MeetingPoint
+  api_key: !secret gmaps_api_key
+  origin: !secret gmaps_work
+  destination: !secret gmaps_fgm
+  scan_interval: 03:00:00
+  options:
+    mode: driving
+    departure_time: now
 
-
-- platform: template
-  sensors:
-    spotify_source:
-      value_template: '{{ states.media_player.spotify.attributes["source"] }}'
-      friendly_name: 'Spotify Source'
-
-
-# Climate living room
-- platform: "mqtt"
-  name: living_room_climate_temperature
-  state_topic: "zigbee2mqtt/living_room_climate"
-  availability_topic: "zigbee2mqtt/bridge/state"
-  unit_of_measurement: "°C"
-  device_class: "temperature"
-  value_template: "{{ value_json.temperature }}"
-- platform: "mqtt"
-  name: living_room_climate_humidity
-  state_topic: "zigbee2mqtt/living_room_climate"
-  availability_topic: "zigbee2mqtt/bridge/state"
-  unit_of_measurement: "%"
-  device_class: "humidity"
-  value_template: "{{ value_json.humidity }}"
-- platform: "mqtt"
-  name: living_room_climate_battery
-  state_topic: "zigbee2mqtt/living_room_climate"
-  availability_topic: "zigbee2mqtt/bridge/state"
-  unit_of_measurement: "%"
-  device_class: "battery"
-  value_template: "{{ value_json.battery }}"
-
-# Climate Bathroom
-- platform: "mqtt"
-  name: bathroom_climate_temperature
-  state_topic: "zigbee2mqtt/bathroom_climate"
-  availability_topic: "zigbee2mqtt/bridge/state"
-  unit_of_measurement: "°C"
-  device_class: "temperature"
-  value_template: "{{ value_json.temperature }}"
-- platform: "mqtt"
-  name: bathroom_climate_humidity
-  state_topic: "zigbee2mqtt/bathroom_climate"
-  availability_topic: "zigbee2mqtt/bridge/state"
-  unit_of_measurement: "%"
-  device_class: "humidity"
-  value_template: "{{ value_json.humidity }}"
-- platform: "mqtt"
-  name: bathroom_climate_battery
-  state_topic: "zigbee2mqtt/bathroom_climate"
-  availability_topic: "zigbee2mqtt/bridge/state"
-  unit_of_measurement: "%"
-  device_class: "battery"
-  value_template: "{{ value_json.battery }}"
-
-# Staubi sensors
-- platform: template
-  sensors:
-    staubi_last_clean_duration:  # duration in minutes
-      value_template: >
-        {% set stop = states.vacuum.staubi.attributes.clean_stop %}
-        {% set start = states.vacuum.staubi.attributes.clean_start %}
-        {{ ((as_timestamp(stop) - as_timestamp(start)) / 60) | int }}
-      friendly_name: 'Staubi letzte Reinigung Dauer'
-      unit_of_measurement: 'm'
-    staubi_last_clean_date:
-      value_template: >
-        {% set date = states.vacuum.staubi.attributes.clean_stop %}
-        {{ date.strftime('%d.%m. %H:%M') }}
-      friendly_name: 'Staubis letzte Reinigung'
-
-
-# Time since human presence changed last time
-# Usage
-# - condition: template  # check whether humans_home has been off for > 15 minutes
-#   value_template: '{{ states.sensor.time_since_humans_presence_change.state | int > 900 }}'
-- platform: template
-  sensors:
-    time_since_humans_presence_change:
-      entity_id: sensor.time
-      value_template: >
-        {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.humans_home.last_updated)) | int }}
-    
+- platform: google_travel_time
+  name: Gmaps MeetingPoint2Home
+  api_key: !secret gmaps_api_key
+  origin: !secret gmaps_fgm
+  destination: !secret gmaps_home
+  scan_interval: 03:00:00
+  options:
+    mode: driving
+    departure_time: now

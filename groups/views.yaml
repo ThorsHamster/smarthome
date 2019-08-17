@@ -1,38 +1,35 @@
 default_view:
   name: Dashboard
-  view: true
+  view: yes
   entities:
     - group.people
-    # - group.departures
-    - group.wohnraum_card
     - group.wohnraum_lamps_card
-    - group.schlafzimmer_card
-    - script.romantic_bedroom
-    - media_player.soundbar
-    - media_player.spotify
+    - group.all_switches
 
+graphs:
+  name: Graphs
+  view: yes
+  icon: mdi:chart-line-variant
+  entities:
+    - history_graph.temperature
 
 admin_view:
   name: Admin
   view: yes
   entities:
+    - group.people
     - group.all_devices
     - group.all_lights
     - group.all_automations
     - group.all_scripts
     - group.all_switches
-    - group.humans
-    - group.people
+    - group.all_remotes
     - group.admin_misc
-    - group.admin_scenes
-    - media_player.chromecast
-    - media_player.soundbar_cast
-    - media_player.soundbar
-    - media_player.spotify
-
+    - group.sensors
 
 pi_view:
   name: Pi
   view: yes
   entities:
     - group.pi_sensors
+    - group.pi_hole
