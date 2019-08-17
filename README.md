@@ -43,3 +43,15 @@ See [docker-compose.yml](docker-compose.yml) for details.
 - Notification if aquarium would loose water
 - Notification if the humidity of humidor is too high
 - Notification if newer version of hass.io is available
+
+## Screenshots
+
+![main](https://user-images.githubusercontent.com/48162347/63213761-8b2b0280-c110-11e9-969c-2f7ce5544fc2.png)
+
+![graph](https://user-images.githubusercontent.com/48162347/63213769-9ed66900-c110-11e9-8056-cf1a4c4c3f80.png)
+
+![admin](https://user-images.githubusercontent.com/48162347/63213772-a564e080-c110-11e9-8528-ebe9318fc1dc.png)
+
+![pi](https://user-images.githubusercontent.com/48162347/63213777-aac22b00-c110-11e9-9df5-3499f6ab8988.png)
+
+![sensor_overview](https://user-images.githubusercontent.com/48162347/63213778-b01f7580-c110-11e9-8615-d4527fa8f8c9.png)
