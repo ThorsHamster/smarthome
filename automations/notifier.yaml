@@ -42,7 +42,7 @@
   initial_state: 'off'
   trigger:
   action:
-    service: notify.notify_xmpp_me
+    service: custom_xmpp.send_to_me
     data_template:
       message: 'Jabber Test Message'
       title: '*Jabber Test*'

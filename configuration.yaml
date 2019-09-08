@@ -23,8 +23,8 @@ system_health:
 updater:
   include_used_components: true # Allows Home Assistant developers to focus on popular components.
 
-#logger:
-#  default: info
+logger:
+  default: info
 
 # Discover some devices automatically
 discovery:
@@ -54,6 +54,12 @@ fritzbox_guestwifi:
   host: !secret fritz_ip
   username: !secret fritz_user
   password: !secret fritz_passwd
+
+custom_xmpp:
+  jid: !secret xmpp_jid_bot
+  password: !secret xmpp_bot_passwd
+  recipient_me: !secret xmpp_jid_me
+  recipient_group: !secret xmpp_jid_group
 
 # Telegram
 telegram_bot:
