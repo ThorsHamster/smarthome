@@ -43,6 +43,6 @@
   trigger:
   action:
     service: custom_xmpp.send_to_me
-    data_template:
+    data:
       message: 'Jabber Test Message'
       title: '*Jabber Test*'
