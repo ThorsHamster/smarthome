@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/thorshamster/smarthome/badge)](https://www.codefactor.io/repository/github/thorshamster/smarthome)
+
 # SmartHome
 
 It's a fork from [mammuth](https://github.com/mammuth/home-assistant-configuration). Thanks!
