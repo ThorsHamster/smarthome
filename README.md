@@ -1,4 +1,4 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cc131252ac754da387079ab6215f7617)](https://www.codacy.com/manual/hubert.flor/smarthome?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ThorsHamster/smarthome&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cc131252ac754da387079ab6215f7617)](https://www.codacy.com/manual/ThorsHamster/smarthome?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ThorsHamster/smarthome&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/thorshamster/smarthome/badge)](https://www.codefactor.io/repository/github/thorshamster/smarthome)
 
 # SmartHome
