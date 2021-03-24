@@ -18,7 +18,7 @@ device_tracker.wife_a2:
 # Switches
 switch.sonoff1:
   friendly_name: Sonoff1
-6
+
 switch.sonoff2:
   friendly_name: Fernseher
 
