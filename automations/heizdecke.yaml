@@ -15,7 +15,7 @@
   action:
   - alias: ''
     data:
-      entity_id: switch.sonoff2
+      entity_id: switch.sonoff1
     service: switch.turn_on
 
 
@@ -26,19 +26,19 @@
     platform: time
   condition:
   - condition: state
-    entity_id: switch.sonoff2
+    entity_id: switch.sonoff1
     state: 'on'
   action:
   - alias: ''
     data:
-      entity_id: switch.sonoff2
+      entity_id: switch.sonoff1
     service: switch.turn_off
 
 
 - alias: 'Heizdecke, max Time aus'
   initial_state: 'off'
   trigger:
-  - entity_id: switch.sonoff2
+  - entity_id: switch.sonoff1
     from: 'off'
     platform: state
     to: 'on'
@@ -46,7 +46,7 @@
   action:
   - delay: 00:40:00
   - alias: ''
-    entity_id: switch.sonoff2
+    entity_id: switch.sonoff1
     service: switch.turn_off
 
 
@@ -54,7 +54,7 @@
   initial_state: 'off'
   trigger:
   - platform: state
-    entity_id: switch.sonoff2
+    entity_id: switch.sonoff1
   action:
   - data_template:
       message: 'Heizdecke {{ trigger.to_state.state }}'

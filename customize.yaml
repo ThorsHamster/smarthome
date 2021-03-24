@@ -17,10 +17,10 @@ device_tracker.wife_a2:
 
 # Switches
 switch.sonoff1:
-  friendly_name: Fernseher
-
+  friendly_name: Sonoff1
+6
 switch.sonoff2:
-  friendly_name: Heizdecke
+  friendly_name: Fernseher
 
 # Sensors
 sensor.humidity_6:
