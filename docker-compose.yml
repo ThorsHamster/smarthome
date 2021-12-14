@@ -9,7 +9,7 @@ services:
             - DECONZ_WEB_PORT=${DECONZ_WEB_PORT}
             - DECONZ_WS_PORT=${DECONZ_WS_PORT}
         volumes:
-            - '${INSTALL_FOLDER}/deconz:/root/.local/share/dresden-elektronik/deCONZ'
+            - '${INSTALL_FOLDER}/deconz:/opt/deCONZ'
         devices:
             - /dev/ttyAMA0
         image: 'deconzcommunity/deconz:2.13.03'
