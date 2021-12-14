@@ -12,7 +12,7 @@ services:
             - '${INSTALL_FOLDER}/deconz:/root/.local/share/dresden-elektronik/deCONZ'
         devices:
             - /dev/ttyAMA0
-        image: 'marthoc/deconz:armhf-2.05.66'
+        image: 'deconzcommunity/deconz:2.13.03'
     home-assistant:
         container_name: home-assistant
         env_file: .env
