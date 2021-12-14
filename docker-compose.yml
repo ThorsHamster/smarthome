@@ -39,8 +39,9 @@ services:
         environment:
             - 'ServerIP=${IP}'
             - 'WEBPASSWORD=${WEBPASSWORD}'
+            - 'TZ=Europe/Berlin'
         restart: always
         dns:
             - 127.0.0.1
             - 1.1.1.1
-        image: 'pihole/pihole:4.2.2_armhf'
+        image: 'pihole/pihole:2021.11'
