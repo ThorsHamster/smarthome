@@ -43,3 +43,6 @@ ozw_log.txt
 .HA_VERSION
 .idea
 .cloud
+
+home-assistant.log.1
+home-assistant.log.fault
