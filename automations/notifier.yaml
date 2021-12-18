@@ -36,13 +36,3 @@
     data_template:
       message: 'Update for Home Assistant is available. v{{ states.updater.updater.state }}'
       title: '*Update verfügbar*'
-
-
-- alias: 'Jabber Test Notification'
-  initial_state: 'off'
-  trigger:
-  action:
-    service: notify.notify_xmpp_me
-    data_template:
-      message: 'Jabber Test Message'
-      title: '*Jabber Test*'

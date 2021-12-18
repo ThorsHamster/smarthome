@@ -1,6 +1,5 @@
 default_view:
   name: Dashboard
-  view: yes
   entities:
     - group.people
     - group.wohnraum_lamps_card
@@ -8,14 +7,12 @@ default_view:
 
 graphs:
   name: Graphs
-  view: yes
   icon: mdi:chart-line-variant
   entities:
     - history_graph.temperature
 
 admin_view:
   name: Admin
-  view: yes
   entities:
     - group.people
     - group.all_devices
@@ -29,7 +26,6 @@ admin_view:
 
 pi_view:
   name: Pi
-  view: yes
   entities:
     - group.pi_sensors
     - group.pi_hole

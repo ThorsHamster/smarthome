@@ -44,9 +44,3 @@ group.all_switches:
   friendly_name: Alle Steckdosen
   control: hidden
   hidden: false
-group.default_view:
-  order: 0
-group.admin_view:
-  order: 1
-group.pi_view:
-  order: 2

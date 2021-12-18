@@ -38,10 +38,6 @@ fritzbox:
       username: !secret fritz_user
       password: !secret fritz_passwd
 
-device_tracker:
-  - platform: fritz
-    host: !secret fritz_ip
-
 # MQTT
 mqtt:
   username: !secret mqtt_user
@@ -56,8 +52,6 @@ telegram_bot:
       - !secret telegram_my_chat_id
 
 sensor: !include sensors.yaml
-binary_sensor: !include binary_sensors.yaml
-input_boolean: !include_dir_merge_named input_boolean
 group: !include_dir_merge_named groups
 automation: !include_dir_merge_list automations/
 script: !include scripts.yaml

@@ -17,5 +17,4 @@ exclude:
     - sensor.pihole_dns_queries_cached
     - sensor.pihole_dns_unique_clients
     - sensor.pihole_dns_unique_domains
-purge_interval: 1
 purge_keep_days: 7

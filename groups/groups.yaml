@@ -10,8 +10,6 @@ people:
   entities:
     - device_tracker.husband
     - device_tracker.wife_A2
-    - input_boolean.guest_mode
-    - input_boolean.vacation_mode
 
 residents:
   name: Bewohner

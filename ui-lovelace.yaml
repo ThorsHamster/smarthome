@@ -17,8 +17,6 @@ views:
         entities:
           - device_tracker.husband
           - device_tracker.wife_a2
-          - input_boolean.guest_mode
-          - input_boolean.vacation_mode
       - type: entities
         title: Wohnraum Einzellampen
         show_header_toggle: false
@@ -69,8 +67,6 @@ views:
         entities:
           - device_tracker.husband
           - device_tracker.wife_a2
-          - input_boolean.guest_mode
-          - input_boolean.vacation_mode
       - type: entities
         title: "Alle Geräte"
         show_header_toggle: false

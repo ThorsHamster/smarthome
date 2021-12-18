@@ -1,9 +1,0 @@
-guest_mode:
-  name: "Gästemodus"
-  icon: mdi:account-alert
-  initial: off
-
-vacation_mode:
-  name: Urlaubsmodus
-  icon: mdi:sunglasses
-  initial: off

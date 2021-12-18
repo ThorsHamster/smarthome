@@ -2,17 +2,3 @@
 - name: notify_me
   platform: telegram
   chat_id: !secret telegram_my_chat_id
-
-# Jabber, XMPP
-- name: notify_xmpp_me
-  platform: xmpp
-  sender: !secret xmpp_jid_bot
-  password: !secret xmpp_bot_passwd
-  recipient: !secret xmpp_jid_me
-
-- name: notify_xmpp_group
-  platform: xmpp
-  sender: !secret xmpp_jid_bot
-  password: !secret xmpp_bot_passwd
-  recipient: !secret xmpp_jid_group
-  room: !secret xmpp_jid_group
