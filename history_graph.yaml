@@ -1,8 +1,0 @@
-
-graph1:
-  name: Temperature
-  entities:
-    - sensor.humidity_6
-    - sensor.pressure_7
-    - sensor.temperature_5
-  refresh: 60

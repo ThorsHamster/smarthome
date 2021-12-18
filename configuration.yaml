@@ -48,12 +48,6 @@ mqtt:
   password: !secret mqtt_passwd
   port: !secret mqtt_port
 
-# custom components
-fritzbox_guestwifi:
-  host: !secret fritz_ip
-  username: !secret fritz_user
-  password: !secret fritz_passwd
-
 # Telegram
 telegram_bot:
   - platform: polling
@@ -72,4 +66,3 @@ logbook: !include logbook.yaml
 recorder: !include recorder.yaml
 notify: !include notify.yaml
 history: !include history.yaml
-history_graph: !include history_graph.yaml
