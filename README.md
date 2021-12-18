@@ -18,7 +18,7 @@ It's a fork from [mammuth](https://github.com/mammuth/home-assistant-configurati
 ## Actuators
 *   1x Tradfri Light bulb E27 WS opal 980lm
 *   1x Tradfri Light bulb E27 W opal 1000lm
-*   2x Sonoff Switches (MQTT)
+*   1x Sonoff Switches (MQTT)
 *   telegram
 *   xmpp (jabber)
 
