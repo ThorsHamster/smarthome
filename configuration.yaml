@@ -12,7 +12,6 @@ lovelace:
   mode: yaml
 
 frontend:
-  javascript_version: latest
   themes: !include themes.yaml
 
 # Enables configuration UI

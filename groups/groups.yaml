@@ -7,7 +7,6 @@ wohnraum_lamps_card:
 
 people:
   name: Personen
-  control: hidden
   entities:
     - device_tracker.husband
     - device_tracker.wife_A2
@@ -16,7 +15,6 @@ people:
 
 residents:
   name: Bewohner
-  control: hidden
   entities:
     - device_tracker.husband
     - device_tracker.wife_A2
