@@ -13,16 +13,3 @@
       {% elif trigger.event.data.event == 5002 %}\n  script.toggle_light_kitchen\n\
       {% elif trigger.event.data.event == 5003 %}\n  script.toggle_light_kitchen\n\
       {% endif %}\n"
-
-
-- alias: 'Tradfri Remote 2 Control'
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_fernbedienung_2
-  action:
-  - service_template: "{% if trigger.event.data.event == 1002 %}\n  script.toggle_heizdecke\n\
-      {% elif trigger.event.data.event == 1003 %}\n  script.toggle_heizdecke\n{% endif\
-      \ %}\n"

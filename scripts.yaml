@@ -15,11 +15,6 @@ toggle_light_kitchen_diningroom:
     - service: script.turn_on
       entity_id: script.toggle_light_diningroom
 
-toggle_heizdecke:
-  sequence:
-    - service: switch.toggle
-      entity_id: switch.sonoff2
-
 gmaps_notifier:
   sequence:
     - service_template: >

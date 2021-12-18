@@ -16,9 +16,6 @@ device_tracker.wife_a2:
   icon: mdi:human-female
 
 # Switches
-switch.sonoff1:
-  friendly_name: Sonoff1
-
 switch.sonoff2:
   friendly_name: Fernseher
 

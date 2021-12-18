@@ -29,7 +29,6 @@ views:
         title: Alle Steckdosen
         show_header_toggle: false
         entities:
-          - switch.sonoff1
           - switch.sonoff2
 
       - type: custom:mini-graph-card
@@ -110,7 +109,6 @@ views:
         title: Alle Steckdosen
         show_header_toggle: false
         entities:
-          - switch.sonoff1
           - switch.sonoff2
       - type: entities
         title: Anderes

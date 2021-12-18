@@ -35,5 +35,4 @@ exclude:
    - device_tracker.thanos
    - device_tracker.xps
    - device_tracker.lenovob570
-   - device_tracker.sonoff14353
    - device_tracker.sonoff22693
