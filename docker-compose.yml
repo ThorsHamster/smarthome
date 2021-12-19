@@ -20,6 +20,7 @@ services:
         network_mode: 'host'
         depends_on:
             - "deconz"
+            - "mosquito"
         volumes:
             - '${INSTALL_FOLDER}/homeassistant:/config'
             - '/etc/localtime:/etc/localtime:ro'
@@ -45,3 +46,12 @@ services:
             - 127.0.0.1
             - 1.1.1.1
         image: 'pihole/pihole:2021.11'
+    mosquito:
+        container_name: mosquito
+        env_file: .env
+        network_mode: 'host'
+        volumes:
+            - '${INSTALL_FOLDER}/homeassistant/mosquitto.conf:/mosquitto/config/mosquitto.conf'
+            - '${INSTALL_FOLDER}/homeassistant/mosquitto_passwd:/etc/mosquitto/passwd'
+        restart: always
+        image: 'eclipse-mosquitto:2.0.14'
