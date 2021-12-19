@@ -2,7 +2,7 @@
 title: Home
 
 resources:
-  - url: /local/mini-graph-card-bundle.js?v=0.5.0
+  - url: /local/mini-graph-card-bundle.js?v=0.10.0
     type: module
   - url: /local/monster-card.js?v=1
     type: js
@@ -31,7 +31,7 @@ views:
 
       - type: custom:mini-graph-card
         entities:
-        - sensor.temperature_5
+        - sensor.pressure_5
         height: 100
         line_width: 4
         font_size: 75
@@ -39,7 +39,7 @@ views:
         line_color: '#03a9f4'
       - type: custom:mini-graph-card
         entities:
-        - sensor.humidity_6
+        - sensor.humidity_4
         height: 100
         line_width: 4
         font_size: 75
