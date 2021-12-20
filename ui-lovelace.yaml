@@ -1,12 +1,6 @@
 
 title: Home
 
-resources:
-  - url: /local/mini-graph-card-bundle.js?v=0.10.0
-    type: module
-  - url: /local/auto-entities.js?v=1.9.1
-    type: js
-
 views:
   - title: Dashboard
     icon: mdi:home
