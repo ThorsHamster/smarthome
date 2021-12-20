@@ -1,10 +1,3 @@
-
-wohnraum_lamps_card:
-  name: Wohnraum Einzellampen
-  entities:
-    - light.light_1
-    - light.light_2
-
 people:
   name: Personen
   entities:
@@ -20,14 +13,10 @@ residents:
 sensors:
   name: Sensoren
   entities:
-    - binary_sensor.water_6
-    - sensor.humidity_6
-    - sensor.pressure_7
-    - sensor.temperature_5
-    - sensor.gmaps_home2meetingpoint
-    - sensor.gmaps_meetingpoint2work
-    - sensor.gmaps_work2meetingpoint
-    - sensor.gmaps_meetingpoint2home
+    - binary_sensor.water
+    - sensor.humidor_humidity
+    - sensor.humidor_pressure
+    - sensor.humidor_temperature
 
 pi_sensors:
   name: Raspberry Pi
@@ -43,12 +32,12 @@ pi_sensors:
 pi_hole:
   name: DNS AdBlock!
   entities:
-    - sensor.pihole_dns_queries_today
-    - sensor.pihole_ads_blocked_today
-    - sensor.pihole_ads_percentage_blocked_today
-    - sensor.pihole_dns_queries_cached
-    - sensor.pihole_dns_unique_clients
-    - weblink.pihole_dashboard
+    - sensor.pi_hole_dns_queries_today
+    - sensor.pi_hole_ads_blocked_today
+    - sensor.pi_hole_ads_percentage_blocked_today
+    - sensor.pi_hole_dns_queries_cached
+    - sensor.pi_hole_dns_unique_clients
+    - weblink.pi_hole_dashboard
 
 
 admin_misc:

@@ -1,7 +1,7 @@
 - alias: 'Aquarium Wassererkennung'
   initial_state: 'on'
   trigger:
-  - entity_id: binary_sensor.water_6
+  - entity_id: binary_sensor.water
     from: 'off'
     platform: state
     to: 'on'
@@ -13,16 +13,29 @@
     service: notify.notify_me
 
 
-- alias: 'Humidor Luftfeuchte notify'
+- alias: 'Humidor humidity high notify'
   initial_state: 'on'
   trigger:
     platform: numeric_state
-    entity_id: sensor.humidity_6
+    entity_id: sensor.humidor_humidity
     above: 72
   action:
   - data_template:
-      message: 'Luftfeuchte liegt bei {{ states.sensor.humidity_6.state }} %!'
-      title: '*Humidor Luftfeuchte zu hoch*'
+      message: 'Luftfeuchte liegt bei {{ states.sensor.humidor_humidity.state }} %!'
+      title: '*Humidor humidity high*'
+    service: notify.notify_me
+
+
+- alias: 'Humidor humidity low notify'
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.humidor_humidity
+    below: 70
+  action:
+  - data_template:
+      message: 'Luftfeuchte liegt bei {{ states.sensor.humidor_humidity.state }} %!'
+      title: '*Humidor humidity low*'
     service: notify.notify_me
 
 

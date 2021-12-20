@@ -19,9 +19,6 @@ config:
 
 system_health:
 
-updater:
-  include_used_components: true # Allows Home Assistant developers to focus on popular components.
-
 #logger:
 #  default: info
 
