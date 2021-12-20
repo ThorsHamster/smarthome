@@ -1,20 +1,5 @@
-exclude:
-  domains:
-    - automation
-    - group
-    - device_tracker
-  entities:
-    - sensor.time
-    - sensor.last_boot
-    - sensor.load_15m
-    - binary_sensor.workday
-    - binary_sensor.workday_tomorrow
-    - binary_sensor.workday_fgm
-    # Pi Hole
-    - sensor.pihole_dns_queries_today
-    - sensor.pihole_ads_blocked_today
-    - sensor.pihole_ads_percentage_blocked_today
-    - sensor.pihole_dns_queries_cached
-    - sensor.pihole_dns_unique_clients
-    - sensor.pihole_dns_unique_domains
+include:
+ entities:
+   - binary_sensor.water
+   - switch.sonoff2
 purge_keep_days: 7

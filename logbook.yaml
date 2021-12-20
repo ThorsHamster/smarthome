@@ -1,22 +1,4 @@
-exclude:
-  entities:
-    - sensor.load_15m
-    - sensor.last_boot
-    - sensor.time
-    - sensor.daylight
-    - binary_sensor.workday
-    - binary_sensor.workday_tomorrow
-    - binary_sensor.workday_fgm
-    - group.people
-
-    - light.light_1
-    - light.light_2
-    - sensor.pihole_dns_queries_today
-    - sensor.pihole_ads_blocked_today
-    - sensor.pihole_ads_percentage_blocked_today
-    - sensor.pihole_dns_queries_cached
-    - sensor.pihole_dns_unique_clients
-    - sensor.pihole_dns_unique_domains
-
-  domains:
-    - persistent_notification
+include:
+ entities:
+   - binary_sensor.water
+   - switch.sonoff2
