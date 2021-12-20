@@ -4,7 +4,7 @@ title: Home
 resources:
   - url: /local/mini-graph-card-bundle.js?v=0.10.0
     type: module
-  - url: /local/monster-card.js?v=1
+  - url: /local/auto-entities.js?v=1.9.1
     type: js
 
 views:
@@ -55,20 +55,8 @@ views:
   - title: Admin
     icon: mdi:account-alert
     cards:
-      - type: entities
-        title: Personen
-        show_header_toggle: false
-        entities:
-          - device_tracker.husband
-          - device_tracker.wife_a2
-      - type: entities
-        title: "Alle Geräte"
-        show_header_toggle: false
-        entities:
-          - device_tracker.wife_a2
-          - device_tracker.husband
       - title: All_Automations
-        type: "custom:monster-card"
+        type: "custom:auto-entities"
         card:
           type: entities
           title: All Automations
@@ -79,7 +67,7 @@ views:
             - attributes:
                 hidden: true
       - title: All_Scripts
-        type: "custom:monster-card"
+        type: "custom:auto-entities"
         show_header_toggle: false
         icon: mdi:home-automation
         card:
@@ -99,7 +87,6 @@ views:
         entities:
           - sun.sun
           - sensor.time
-          - sensor.daylight
       - type: entities
         title: Sensoren
         show_header_toggle: false
