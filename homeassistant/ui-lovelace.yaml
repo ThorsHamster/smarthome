@@ -19,14 +19,6 @@ views:
 
       - type: custom:mini-graph-card
         entities:
-        - sensor.humidor_pressure
-        height: 100
-        line_width: 4
-        font_size: 75
-        labels: true
-        line_color: '#03a9f4'
-      - type: custom:mini-graph-card
-        entities:
         - sensor.humidor_humidity
         height: 100
         line_width: 4
