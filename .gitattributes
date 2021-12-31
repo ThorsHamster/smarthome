@@ -1,7 +1,7 @@
 # Files that are going to be encrypted
-secrets.yaml filter=git-crypt diff=git-crypt
+homeassistant/secrets.yaml filter=git-crypt diff=git-crypt
+homeassistant/customize.yaml filter=git-crypt diff=git-crypt
+mosquitto/mosquito_passwd filter=git-crypt diff=git-crypt
 .env filter=git-crypt diff=git-crypt
-mosquito_passwd filter=git-crypt diff=git-crypt
-customize.yaml filter=git-crypt diff=git-crypt
 # Making sure that .gitattributes is never encrypted. DON'T TOUCH THAT LINE AND ONE BELOW
 .gitattributes !filter !diff

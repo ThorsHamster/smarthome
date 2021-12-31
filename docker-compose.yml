@@ -51,7 +51,7 @@ services:
         env_file: .env
         network_mode: 'host'
         volumes:
-            - '${INSTALL_FOLDER}/homeassistant/mosquitto.conf:/mosquitto/config/mosquitto.conf'
-            - '${INSTALL_FOLDER}/homeassistant/mosquitto_passwd:/etc/mosquitto/passwd'
+            - '${INSTALL_FOLDER}/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf'
+            - '${INSTALL_FOLDER}/mosquitto/mosquitto_passwd:/etc/mosquitto/passwd'
         restart: always
         image: 'eclipse-mosquitto:2.0.14'
