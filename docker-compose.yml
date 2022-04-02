@@ -24,7 +24,7 @@ services:
         volumes:
             - '${INSTALL_FOLDER}/homeassistant:/config'
             - '/etc/localtime:/etc/localtime:ro'
-        image: 'homeassistant/raspberrypi3-homeassistant:2021.12.3'
+        image: 'homeassistant/raspberrypi3-homeassistant:2022.3.8'
     pihole:
         container_name: pihole
         env_file: .env
@@ -45,7 +45,7 @@ services:
         dns:
             - 127.0.0.1
             - 1.1.1.1
-        image: 'pihole/pihole:2021.11'
+        image: 'pihole/pihole:2022.04.1'
     mosquito:
         container_name: mosquito
         env_file: .env
