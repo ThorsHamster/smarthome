@@ -26,6 +26,29 @@ views:
         labels: true
         line_color: '#03a9f4'
 
+  - title: Diabetes
+    icon: mdi:home-heart
+    cards:
+      - type: entities
+        title: Diabetes
+        show_header_toggle: false
+        entities:
+          - sensor.minimed_bgl
+          - sensor.minimed_trend
+          - sensor.minimed_active_insulin
+          - sensor.minimed_current_basal_rate
+          - sensor.minimed_temp_basal_rate
+          - sensor.minimed_temp_basal_rate_percentage
+          - sensor.minimed_pump_battery_level
+          - sensor.minimed_insulin_units_remaining
+          - sensor.minimed_update_timestamp
+      - type: history-graph
+        title: Blood glucose level
+        hours_to_show: 1
+        refresh_interval: 60
+        entities:
+          - sensor.minimed_bgl
+
   - title: Graphs
     icon: mdi:chart-line-variant
     cards:
