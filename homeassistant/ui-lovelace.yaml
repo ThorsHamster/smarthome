@@ -19,16 +19,25 @@ views:
           - sensor.minimed_insulin_units_remaining
           - sensor.minimed_update_timestamp
       - type: custom:mini-graph-card
-        graph: line
         hours_to_show: 1
-        update_interval: 60
+        points_per_hour: 20
         entities:
         - sensor.minimed_bgl
-        height: 100
-        line_width: 4
-        font_size: 75
-        labels: true
-        line_color: '#03a9f4'
+        show:
+          labels: true
+        color_thresholds:
+        - value: 0
+          color: "#ff2d00"
+        - value: 79
+          color: "#ff2d00"
+        - value: 80
+          color: "#0CFF00"
+        - value: 180
+          color: "#0CFF00"
+        - value: 181
+          color: "#ff2d00"
+        - value: 600
+          color: "#ff2d00"
 
   - title: Dashboard
     icon: mdi:home
