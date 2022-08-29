@@ -3,4 +3,7 @@ include:
    - binary_sensor.water
    - switch.sonoff2
    - sensor.minimed_bgl
+   - sensor.humidor_humidity
+   - sensor.humidor_pressure
+   - sensor.humidor_temperature
 purge_keep_days: 7
