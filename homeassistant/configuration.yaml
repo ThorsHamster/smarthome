@@ -11,13 +11,10 @@ homeassistant:
 lovelace:
   mode: yaml
   resources:
-    - url: /local/mini-graph-card-bundle.js?v=0.10.0
+    - url: /local/mini-graph-card-bundle.js?v=0.11.0
       type: module
     - url: /local/auto-entities.js?v=1.9.1
       type: js
-
-frontend:
-  themes: !include themes.yaml
 
 # Enables configuration UI
 config:
