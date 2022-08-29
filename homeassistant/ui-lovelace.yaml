@@ -19,6 +19,7 @@ views:
           - sensor.minimed_insulin_units_remaining
           - sensor.minimed_update_timestamp
       - type: custom:mini-graph-card
+        name: Blood glucose level
         hours_to_show: 1
         points_per_hour: 20
         entities:
