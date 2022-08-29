@@ -26,6 +26,7 @@ views:
         - sensor.minimed_bgl
         show:
           labels: true
+          points: true
         color_thresholds:
         - value: 0
           color: "#ff2d00"
