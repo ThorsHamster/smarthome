@@ -65,3 +65,6 @@
       friendly_name: 'Latest Update'
       value_template: ""
       icon_template: mdi:home-heart
+    minimed_status:
+      friendly_name: 'Connection Status'
+      value_template: ""
