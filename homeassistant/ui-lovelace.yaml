@@ -42,6 +42,11 @@ views:
           color: "#ff2d00"
         - value: 600
           color: "#ff2d00"
+      - type: history-graph
+        title: Blood glucose level
+        hours_to_show: 1
+        entities:
+        - sensor.minimed_bgl
 
   - title: Dashboard
     icon: mdi:home
