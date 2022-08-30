@@ -18,6 +18,7 @@ views:
           - sensor.minimed_pump_battery_level
           - sensor.minimed_insulin_units_remaining
           - sensor.minimed_update_timestamp
+          - sensor.minimed_status
       - type: custom:mini-graph-card
         name: Blood glucose level
         hours_to_show: 1
