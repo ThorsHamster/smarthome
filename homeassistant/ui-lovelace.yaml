@@ -9,16 +9,16 @@ views:
         title: Medtronic Minimed 640G
         show_header_toggle: false
         entities:
-          - sensor.minimed_bgl
-          - sensor.minimed_trend
-          - sensor.minimed_active_insulin
-          - sensor.minimed_current_basal_rate
-          - sensor.minimed_temp_basal_rate
-          - sensor.minimed_temp_basal_rate_percentage
-          - sensor.minimed_pump_battery_level
-          - sensor.minimed_insulin_units_remaining
-          - sensor.minimed_update_timestamp
-          - sensor.minimed_status
+          - sensor.minimed_ui_bgl
+          - sensor.minimed_ui_trend
+          - sensor.minimed_ui_active_insulin
+          - sensor.minimed_ui_current_basal_rate
+          - sensor.minimed_ui_temp_basal_rate
+          - sensor.minimed_ui_temp_basal_rate_percentage
+          - sensor.minimed_ui_pump_battery_level
+          - sensor.minimed_ui_insulin_units_remaining
+          - sensor.minimed_ui_update_timestamp
+          - sensor.minimed_ui_status
       - type: custom:mini-graph-card
         name: Blood glucose level
         hours_to_show: 1

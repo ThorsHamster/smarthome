@@ -25,46 +25,65 @@
 - platform: template
   sensors:
     minimed_bgl:
-      friendly_name: 'Sensor BGL'
       value_template: ""
-      unit_of_measurement: 'mg/dl'
-      icon_template: mdi:home-heart
     minimed_trend:
-      friendly_name: 'Trend'
       value_template: ""
-      icon_template: mdi:trending-up
     minimed_current_basal_rate:
-      friendly_name: 'Current basal rate'
       value_template: ""
     minimed_temp_basal_rate:
-      friendly_name: 'Temporary basal rate'
       value_template: ""
     minimed_temp_basal_rate_percentage:
-      friendly_name: 'Temporary basal rate percentage'
       value_template: ""
     minimed_active_insulin:
-      friendly_name: 'Active insulin'
       value_template: ""
+    minimed_pump_battery_level:
+      value_template: ""
+    minimed_insulin_units_remaining:
+      value_template: ""
+    minimed_message:
+      value_template: ""
+    minimed_update_timestamp:
+      value_template: ""
+    minimed_status:
+      value_template: ""
+    minimed_ui_bgl:
+      friendly_name: 'Sensor BGL'
+      value_template: "{{ states('sensor.minimed_bgl') | int }}"
+      unit_of_measurement: 'mg/dl'
+      icon_template: mdi:home-heart
+    minimed_ui_trend:
+      friendly_name: 'Trend'
+      value_template: "{{ states('sensor.minimed_trend') }}"
+      icon_template: mdi:trending-up
+    minimed_ui_current_basal_rate:
+      friendly_name: 'Current basal rate'
+      value_template: "{{ states('sensor.minimed_current_basal_rate') | float }}"
+    minimed_ui_temp_basal_rate:
+      friendly_name: 'Temporary basal rate'
+      value_template: "{{ states('sensor.minimed_temp_basal_rate') | float }}"
+    minimed_ui_temp_basal_rate_percentage:
+      friendly_name: 'Temporary basal rate percentage'
+      value_template: "{{ states('sensor.minimed_temp_basal_rate_percentage') | float }}"
+    minimed_ui_active_insulin:
+      friendly_name: 'Active insulin'
+      value_template: "{{ states('sensor.minimed_active_insulin') | float }}"
       unit_of_measurement: 'U'
       icon_template: mdi:trending-up
-    minimed_pump_battery_level:
+    minimed_ui_pump_battery_level:
       friendly_name: 'Pump battery level'
-      value_template: ""
+      value_template: "{{ states('sensor.minimed_pump_battery_level') | float }}"
       unit_of_measurement: '%'
       icon_template: mdi:battery
-    minimed_insulin_units_remaining:
+    minimed_ui_insulin_units_remaining:
       friendly_name: 'Insulin units remaining'
-      value_template: ""
+      value_template: "{{ states('sensor.minimed_insulin_units_remaining') | float }}"
       unit_of_measurement: 'U'
       icon_template: mdi:history
-    minimed_message:
-      friendly_name: 'Pump message'
-      value_template: ""
-      icon_template: mdi:message
-    minimed_update_timestamp:
+    minimed_ui_update_timestamp:
       friendly_name: 'Latest Update'
-      value_template: ""
+      value_template: "{{ states('sensor.minimed_update_timestamp') }}"
       icon_template: mdi:home-heart
-    minimed_status:
+    minimed_ui_status:
       friendly_name: 'Connection Status'
-      value_template: ""
+      value_template: "{{ states('sensor.minimed_status') }}"
+      icon_template: mdi:antenna
