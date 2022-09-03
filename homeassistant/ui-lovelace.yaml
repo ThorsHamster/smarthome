@@ -25,7 +25,7 @@ views:
         points_per_hour: 21
         hour24: true
         entities:
-        - sensor.minimed_bgl
+        - sensor.minimed_ui_bgl
         show:
           labels: true
           points: true
@@ -46,7 +46,7 @@ views:
         title: Blood glucose level
         hours_to_show: 1
         entities:
-        - sensor.minimed_bgl
+        - sensor.minimed_ui_bgl
 
   - title: Dashboard
     icon: mdi:home
