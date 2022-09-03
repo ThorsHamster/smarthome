@@ -39,13 +39,15 @@
     service: notify.notify_me
 
 
-- alias: 'Update Available Notifications'
-  initial_state: 'off'
+- alias: 'Medtronic Message'
+  initial_state: 'on'
   trigger:
+  - entity_id: sensor.minimed_message
+    from:
     platform: state
-    entity_id: updater.updater
+    not_to: ''
   action:
+  - data_template:
+      message: '{{ states.sensor.minimed_message.state }}'
+      title: '*Medtronic Alarm*'
     service: notify.notify_me
-    data_template:
-      message: 'Update for Home Assistant is available. v{{ states.updater.updater.state }}'
-      title: '*Update verfügbar*'
