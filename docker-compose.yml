@@ -24,7 +24,7 @@ services:
         volumes:
             - '${INSTALL_FOLDER}/homeassistant:/config'
             - '/etc/localtime:/etc/localtime:ro'
-        image: 'homeassistant/raspberrypi3-homeassistant:2022.3.8'
+        image: 'homeassistant/raspberrypi3-homeassistant:2022.8.7'
     pihole:
         container_name: pihole
         env_file: .env
