@@ -43,7 +43,7 @@
   initial_state: 'on'
   trigger:
   - entity_id: sensor.minimed_message
-    from: ''
+    not_to: ''
     platform: state
   action:
   - data_template:
