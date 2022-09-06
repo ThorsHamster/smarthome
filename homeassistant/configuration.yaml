@@ -60,4 +60,4 @@ logbook: !include logbook.yaml
 recorder: !include recorder.yaml
 notify: !include notify.yaml
 history: !include history.yaml
-input_boolean: input_boolean.yaml
+input_boolean: !include input_boolean.yaml
