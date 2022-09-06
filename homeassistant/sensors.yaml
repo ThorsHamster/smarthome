@@ -47,7 +47,7 @@
     minimed_status:
       value_template: ""
     minimed_ui_bgl:
-      friendly_name: 'Sensor BGL'
+      friendly_name: 'Blood glucose level'
       value_template: "{{ states('sensor.minimed_bgl') }}"
       unit_of_measurement: 'mg/dl'
       icon_template: mdi:home-heart
@@ -64,6 +64,7 @@
     minimed_ui_temp_basal_rate_percentage:
       friendly_name: 'Temporary basal rate percentage'
       value_template: "{{ states('sensor.minimed_temp_basal_rate_percentage') }}"
+      unit_of_measurement: '%'
     minimed_ui_active_insulin:
       friendly_name: 'Active insulin'
       value_template: "{{ states('sensor.minimed_active_insulin') }}"
