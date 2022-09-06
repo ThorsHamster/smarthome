@@ -49,6 +49,7 @@ telegram_bot:
     api_key: !secret telegram_api_key
     allowed_chat_ids:
       - !secret telegram_my_chat_id
+      - !secret telegram_wife_chat_id
 
 sensor: !include sensors.yaml
 group: !include_dir_merge_named groups

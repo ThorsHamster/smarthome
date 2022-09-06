@@ -2,3 +2,13 @@
 - name: notify_me
   platform: telegram
   chat_id: !secret telegram_my_chat_id
+
+- name: notify_wife
+  platform: telegram
+  chat_id: !secret telegram_wife_chat_id
+
+- platform: group
+  name: notify_both
+  services:
+    - service: notify_me
+    - service: notify_wife

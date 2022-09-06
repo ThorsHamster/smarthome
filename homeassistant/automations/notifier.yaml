@@ -49,4 +49,4 @@
   - data_template:
       message: '{{ states.sensor.minimed_message.state }}'
       title: '*Medtronic Alarm*'
-    service: notify.notify_me
+    service: notify.notify_both
