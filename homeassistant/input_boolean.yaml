@@ -1,4 +1,4 @@
-- medtronic_switch:
+  medtronic_switch:
     name: Switch to turn Medtronic sensor on/off
     icon: mdi:home-heart
     initial: true
