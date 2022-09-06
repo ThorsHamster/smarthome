@@ -9,6 +9,7 @@ views:
         title: Medtronic Minimed 640G
         show_header_toggle: false
         entities:
+          - input_boolean.medtronic_switch
           - sensor.minimed_ui_bgl
           - sensor.minimed_ui_trend
           - sensor.minimed_ui_active_insulin
