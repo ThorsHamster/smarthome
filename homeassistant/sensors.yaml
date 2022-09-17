@@ -46,6 +46,8 @@
       value_template: ""
     minimed_status:
       value_template: ""
+    minimed_set_change_timestamp:
+      value_template: ""
     minimed_ui_bgl:
       friendly_name: 'Blood glucose level'
       value_template: "{{ states('sensor.minimed_bgl') }}"
@@ -83,8 +85,12 @@
     minimed_ui_update_timestamp:
       friendly_name: 'Latest Update'
       value_template: "{{ states('sensor.minimed_update_timestamp') }}"
-      icon_template: mdi:home-heart
+      icon_template: mdi:archive-clock
     minimed_ui_status:
       friendly_name: 'Connection Status'
       value_template: "{{ states('sensor.minimed_status') }}"
       icon_template: mdi:antenna
+    minimed_ui_set_change_timestamp:
+      friendly_name: 'Latest Set Change'
+      value_template: "{{ states('sensor.minimed_set_change_timestamp') }}"
+      icon_template: mdi:archive-clock
