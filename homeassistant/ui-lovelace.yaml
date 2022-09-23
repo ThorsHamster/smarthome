@@ -14,7 +14,6 @@ views:
           - sensor.minimed_ui_trend
           - sensor.minimed_ui_active_insulin
           - sensor.minimed_ui_current_basal_rate
-          - sensor.minimed_ui_temp_basal_rate
           - sensor.minimed_ui_temp_basal_rate_percentage
           - sensor.minimed_ui_pump_battery_level
           - sensor.minimed_ui_insulin_units_remaining

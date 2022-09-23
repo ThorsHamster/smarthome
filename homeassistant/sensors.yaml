@@ -30,8 +30,6 @@
       value_template: ""
     minimed_current_basal_rate:
       value_template: ""
-    minimed_temp_basal_rate:
-      value_template: ""
     minimed_temp_basal_rate_percentage:
       value_template: ""
     minimed_active_insulin:
@@ -60,9 +58,6 @@
     minimed_ui_current_basal_rate:
       friendly_name: 'Current basal rate'
       value_template: "{{ states('sensor.minimed_current_basal_rate') }}"
-    minimed_ui_temp_basal_rate:
-      friendly_name: 'Temporary basal rate'
-      value_template: "{{ states('sensor.minimed_temp_basal_rate') }}"
     minimed_ui_temp_basal_rate_percentage:
       friendly_name: 'Temporary basal rate percentage'
       value_template: "{{ states('sensor.minimed_temp_basal_rate_percentage') }}"
