@@ -51,6 +51,7 @@ telegram_bot:
       - !secret telegram_my_chat_id
       - !secret telegram_wife_chat_id
 
+input_boolean: !include input_boolean.yaml
 sensor: !include sensors.yaml
 group: !include_dir_merge_named groups
 automation: !include_dir_merge_list automations/
@@ -60,4 +61,3 @@ logbook: !include logbook.yaml
 recorder: !include recorder.yaml
 notify: !include notify.yaml
 history: !include history.yaml
-input_boolean: !include input_boolean.yaml
