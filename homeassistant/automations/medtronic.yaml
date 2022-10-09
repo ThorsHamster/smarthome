@@ -1,0 +1,22 @@
+- alias: 'Medtronic Message'
+  initial_state: 'on'
+  trigger:
+  - entity_id: sensor.minimed_message
+    not_to: ''
+    platform: state
+  action:
+  - data_template:
+      message: '{{ states.sensor.minimed_message.state }}'
+      title: '*Medtronic Alarm*'
+    service: notify.notify_both
+
+- alias: Auto Off Medtronic Switch
+  trigger:
+  - platform: state
+    entity_id: input_boolean.medtronic_switch
+    to: 'on'
+    for: '00:00:03'
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.medtronic_switch
