@@ -37,16 +37,3 @@
       message: 'Luftfeuchte liegt bei {{ states.sensor.humidor_humidity.state }} %!'
       title: '*Humidor humidity low*'
     service: notify.notify_me
-
-
-- alias: 'Medtronic Message'
-  initial_state: 'on'
-  trigger:
-  - entity_id: sensor.minimed_message
-    not_to: ''
-    platform: state
-  action:
-  - data_template:
-      message: '{{ states.sensor.minimed_message.state }}'
-      title: '*Medtronic Alarm*'
-    service: notify.notify_both
