@@ -21,3 +21,15 @@
   - service: input_boolean.turn_off
     target:
       entity_id: input_boolean.medtronic_switch
+
+- alias: 'BGL too low warning'
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.minimed_ui_bgl
+    below: 80
+  action:
+  - data_template:
+      message: 'BGL at {{ states.sensor.minimed_ui_bgl.state }}!'
+      title: '*BGL low*'
+    service: notify.notify_both
