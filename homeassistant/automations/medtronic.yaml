@@ -11,6 +11,7 @@
     service: notify.notify_both
 
 - alias: Auto Off Medtronic Switch
+  initial_state: 'off'
   trigger:
   - platform: state
     entity_id: input_boolean.medtronic_switch
