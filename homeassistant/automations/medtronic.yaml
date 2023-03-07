@@ -33,3 +33,25 @@
       message: 'BGL at {{ states.sensor.minimed_ui_bgl.state }}!'
       title: '*BGL low*'
     service: notify.notify_both
+
+- trigger:
+  - platform: state
+    entity_id: sensor.minimed_ui_bgl
+  alias: 'BGL too low prediction'
+  initial_state: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.minimed_ui_bgl
+        below: 90
+      - condition: numeric_state
+        entity_id: sensor.minimed_ui_active_insulin
+        above: 0.1
+      - condition: template
+        value_template: '{{ trigger.from_state.state|int - trigger.to_state.state|int > 3 }}'
+  action:
+  - data_template:
+      message: 'BGL at {{ states.sensor.minimed_ui_bgl.state }}!'
+      title: '*BGL low prediction*'
+    service: notify.notify_me
