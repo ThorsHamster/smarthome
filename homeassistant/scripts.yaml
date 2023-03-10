@@ -45,3 +45,27 @@ gmaps_notifier:
       data:
         message: 'Achtung: Moeglicher Stau auf Fahrtstrecke!'
         title: ''
+
+watchdog:
+  alias: 'Entity Watchdog'
+  # description: "Entity Watchdog"
+  # fields:
+  #   entity_id:
+  #     description: 'The entity to check'
+  #     example: 'binary_sensor.sensor'
+  #   time:
+  #     description: 'The max number of seconds before an alert'
+  #     example: '300'
+  sequence:
+    - condition: template
+      value_template: '{{ ( now()|as_timestamp() - states[entity_id].last_updated|default(0,true)|as_timestamp()|default(0,true) ) > time }}'
+    - service: notify.notify_me
+      data_template: 
+        title: 'Watchdog: {{ entity_id }}'
+        message: >
+          {%- if states[entity_id].last_updated %}
+          Entity {{ entity_id }} has not been updated in {{ ( now()|as_timestamp() - states[entity_id].last_updated|default(0,true)|as_timestamp()|default(0,true) )|int }}
+          seconds which is longer than the max allowed of {{ time }}.
+          {%- else %}
+          Entity {{ entity_id }} does not seem to exist.
+          {%- endif %}

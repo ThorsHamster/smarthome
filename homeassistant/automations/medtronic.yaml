@@ -55,3 +55,13 @@
       message: 'BGL at {{ states.sensor.minimed_ui_bgl.state }}!'
       title: '*BGL low prediction*'
     service: notify.notify_me
+
+- alias: Watchdog
+  trigger:
+    platform: time_pattern
+    minutes: "/5"
+  action:
+    - service: script.watchdog
+      data:
+        entity_id: sensor.minimed_update_timestamp
+        time: 900
