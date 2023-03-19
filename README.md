@@ -7,6 +7,7 @@ It's a fork from [mammuth](https://github.com/mammuth/home-assistant-configurati
 
 ## Sensors
 
+*   Medtronic Sensor for insulin pump data and notifications, see [contour-next-link](https://github.com/ThorsHamster/contour-next-link)
 *   1x Aqara Temperature, Humidity, Air Pressure
 *   1x Aqara Water sensor
 *   2x Tradfri Remote
@@ -40,8 +41,14 @@ See [docker-compose.yml](docker-compose.yml) for details.
 *   Notification if aquarium would loose water
 *   Notification if the humidity of humidor is too high or too low
 *   Notification if newer version of hass.io is available
+*   Notification if insulin pump has an not acknowledge message
+*   Notification if blood glucose level is under a specified value (as a warning)
+*   Notification if blood glucose level is supposed to get low (as a prediction)
 
 ## Screenshots
+
+![Medtronic Dashboard1](https://user-images.githubusercontent.com/48162347/226168182-5571d239-26eb-4016-9219-178bd5f371b5.jpg)
+![Medtronic Dashboard1](https://user-images.githubusercontent.com/48162347/226168180-fbff2860-c482-4865-8352-f4da57b23469.jpg)
 
 ![main](https://user-images.githubusercontent.com/48162347/63213761-8b2b0280-c110-11e9-969c-2f7ce5544fc2.png)
 
