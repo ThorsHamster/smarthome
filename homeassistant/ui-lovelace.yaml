@@ -20,6 +20,7 @@ views:
           - sensor.minimed_ui_update_timestamp
           - sensor.minimed_ui_set_change_timestamp
           - sensor.minimed_ui_status
+          - input_button.medtronic_alarm_acknowledge
       - type: custom:mini-graph-card
         name: Blood glucose level
         hours_to_show: 1

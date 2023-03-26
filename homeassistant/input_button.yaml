@@ -1,0 +1,3 @@
+  medtronic_alarm_acknowledge:
+    name: Medtronic alarm acknowledge
+    icon: mdi:bell

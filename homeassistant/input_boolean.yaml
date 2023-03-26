@@ -2,3 +2,7 @@
     name: Switch to turn Medtronic sensor on/off
     icon: mdi:home-heart
     initial: true
+
+  medtronic_alarm_delay_switch:
+    name: Switch automatically turned on by alarm, used as delay for shelly plug switch
+    initial: false
