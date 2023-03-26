@@ -9,12 +9,10 @@
       message: '{{ states.sensor.minimed_message.state }}'
       title: '*Medtronic Alarm*'
     service: notify.notify_both
-  - condition: or 
-    conditions:
-      - condition: sun
-        after: sunset
-      - condition: sun
-        before: sunrise
+  condition:
+    - condition: time
+      after: '21:00:00'
+      before: '07:30:00'
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.medtronic_alarm_delay_switch 
