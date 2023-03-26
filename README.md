@@ -19,6 +19,8 @@ It's a fork from [mammuth](https://github.com/mammuth/home-assistant-configurati
 ## Actuators
 
 *   1x Sonoff Switches (MQTT)
+*   Sonoff Switch
+*   2x Shelly plug
 *   telegram
 
 ## Hardware
