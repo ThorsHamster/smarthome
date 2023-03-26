@@ -114,6 +114,8 @@ views:
         show_header_toggle: false
         entities:
           - switch.sonoff2
+          - switch.shelly1
+          - switch.shelly2
       - type: entities
         title: Anderes
         show_header_toggle: false
