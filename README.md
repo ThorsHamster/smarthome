@@ -38,7 +38,6 @@ See [docker-compose.yml](docker-compose.yml) for details.
 
 *   No-one-at-Home and Coming-Home functionality
 *   Notification if new device in network
-*   Dark Mode and Main Theme
 *   Tradfri Remotes for lights
 *   Notification if aquarium would loose water
 *   Notification if the humidity of humidor is too high or too low
@@ -46,6 +45,7 @@ See [docker-compose.yml](docker-compose.yml) for details.
 *   Notification if insulin pump has an not acknowledge message
 *   Notification if blood glucose level is under a specified value (as a warning)
 *   Notification if blood glucose level is supposed to get low (as a prediction)
+*   Automatic turn on of shelly plug (lamp) if medtronic alarm gets not acknowledged before timeout
 
 ## Screenshots
 
