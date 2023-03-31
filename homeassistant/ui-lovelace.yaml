@@ -89,27 +89,6 @@ views:
   - title: Admin
     icon: mdi:account-alert
     cards:
-      - title: All_Automations
-        type: "custom:auto-entities"
-        card:
-          type: entities
-          title: All Automations
-        filter:
-          include:
-            - entity_id: "automation.*"
-          exclude:
-            - attributes:
-                hidden: true
-      - title: All_Scripts
-        type: "custom:auto-entities"
-        show_header_toggle: false
-        icon: mdi:home-automation
-        card:
-          type: entities
-          title: All Scripts
-        filter:
-          include:
-            - entity_id: "script.*"
       - type: entities
         title: Alle Steckdosen
         show_header_toggle: false
@@ -131,6 +110,27 @@ views:
           - sensor.humidor_humidity
           - sensor.humidor_pressure
           - sensor.humidor_temperature
+      - title: All_Automations
+        type: "custom:auto-entities"
+        card:
+          type: entities
+          title: All Automations
+        filter:
+          include:
+            - entity_id: "automation.*"
+          exclude:
+            - attributes:
+                hidden: true
+      - title: All_Scripts
+        type: "custom:auto-entities"
+        show_header_toggle: false
+        icon: mdi:home-automation
+        card:
+          type: entities
+          title: All Scripts
+        filter:
+          include:
+            - entity_id: "script.*"
 
   - title: Pi
     cards:
