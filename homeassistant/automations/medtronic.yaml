@@ -40,6 +40,42 @@
       title: '*BGL low*'
     service: notify.notify_both
 
+- alias: 'BGL below 70'
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.minimed_ui_bgl
+    below: 70
+  action:
+  - data_template:
+      message: 'BGL at {{ states.sensor.minimed_ui_bgl.state }}!'
+      title: '*BGL below 70*'
+    service: notify.notify_both
+  - condition: time
+    after: '21:00:00'
+    before: '07:30:00'
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.medtronic_alarm_delay_switch 
+
+- alias: 'BGL above 250'
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.minimed_ui_bgl
+    above: 250
+  action:
+  - data_template:
+      message: 'BGL at {{ states.sensor.minimed_ui_bgl.state }}!'
+      title: '*BGL above 250*'
+    service: notify.notify_both
+  - condition: time
+    after: '21:00:00'
+    before: '07:30:00'
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.medtronic_alarm_delay_switch 
+
 - trigger:
   - platform: state
     entity_id: sensor.minimed_ui_bgl
