@@ -99,6 +99,7 @@
     service: notify.notify_both
 
 - alias: Watchdog
+  initial_state: 'on'
   trigger:
     platform: time_pattern
     minutes: "/5"
