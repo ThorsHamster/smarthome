@@ -45,7 +45,7 @@ services:
         dns:
             - 127.0.0.1
             - 1.1.1.1
-        image: 'pihole/pihole:2022.04.1'
+        image: 'pihole/pihole:2023.11.0'
     mosquito:
         container_name: mosquito
         env_file: .env
