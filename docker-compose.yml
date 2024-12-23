@@ -51,7 +51,7 @@ services:
         env_file: .env
         network_mode: 'host'
         volumes:
-            - '${INSTALL_FOLDER}/smarthome/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro'
+            - '${INSTALL_FOLDER}/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro'
             - '${INSTALL_FOLDER}/mosquitto/mosquitto_passwd:/etc/mosquitto/passwd'
         restart: always
         image: 'eclipse-mosquitto:2.0.20'
